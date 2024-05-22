@@ -15,7 +15,11 @@ data "aws_iam_policy_document" "codebuild_permission_policy" {
       "ecr:DescribeRepositories",
       "ecr:ListImages",
       "ecr:DescribeImages",
-      "ecr:BatchGetImage"
+      "ecr:InitiateLayerUpload",
+      "ecr:BatchGetImage",
+      "ecr:UploadLayerPart", // Added for uploading layers
+      "ecr:CompleteLayerUpload",
+      "ecr:PutImage"
     ]
     resources = ["*"]
   }
