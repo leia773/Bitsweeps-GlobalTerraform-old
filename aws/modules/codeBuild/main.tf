@@ -60,14 +60,14 @@ data "aws_iam_policy_document" "assume_role" {
 
 # creating and attaching trust policy to role
 resource "aws_iam_role" "codeBuildRole" {
-  name               = "codeBuildRole"
+  name               = "${var.env}_codeBuildRole"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 
 }
 
 # saving the policy to aws account and generated  the arn will futher  attach in role
 resource "aws_iam_policy" "codebuild_permission_policy" {
-  name   = "codebuild_permission_policy"
+  name   = "${var.env}_codebuild_permission_policy"
   policy = data.aws_iam_policy_document.codebuild_permission_policy.json
 }
 

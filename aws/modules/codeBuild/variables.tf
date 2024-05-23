@@ -66,3 +66,10 @@ variable "environment_variables" {
   }))
 
 }
+
+variable "env" {
+
+  type = string
+  
+  
+}
