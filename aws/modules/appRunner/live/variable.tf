@@ -40,6 +40,7 @@ variable "image_identifier" {
 
 variable "auto_deployments_enabled" {
   default     = false
+  type = bool
   description = "Whether automatic deployments are enabled."
 }
 
@@ -50,7 +51,7 @@ variable "runtime_environment_variables" {
 }
 
 variable "cpu" {
-  default     = number
+  type     = number
   description = "The amount of CPU allocated to each instance."
 }
 

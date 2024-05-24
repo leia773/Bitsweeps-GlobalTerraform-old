@@ -83,7 +83,7 @@ resource "aws_iam_role_policy_attachment" "app_runner_role_policy_attachment" {
 
 
 
-
+# auto aws_apprunner_auto_scaling_configuration_version
 
 
 resource "aws_apprunner_auto_scaling_configuration_version" "app_runner_service_config" {
