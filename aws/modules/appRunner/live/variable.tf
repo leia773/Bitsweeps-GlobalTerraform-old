@@ -1,12 +1,4 @@
-variable "region" {
-  type        = string
-  description = "The AWS region where the resources will be provisioned."
-}
 
-variable "profile" {
-  type        = string
-  description = "The AWS profile to use for authentication."
-}
 
 variable "service_name" {
   type        = string
@@ -56,7 +48,7 @@ variable "cpu" {
 }
 
 variable "memory" {
-  default     = number
+  type =       number
   description = "The amount of memory allocated to each instance."
 }
 
