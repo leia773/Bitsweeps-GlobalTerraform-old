@@ -1,61 +1,126 @@
-output "app_runner_service_name" {
+
+
+variable "service_name" {
+  type        = string
   description = "The name of the AWS App Runner service."
-  value       = aws_apprunner_service.app_runner_service.service_name
 }
 
-output "app_runner_service_arn" {
-  description = "The ARN of the AWS App Runner service."
-  value       = aws_apprunner_service.app_runner_service.arn
+variable "app_runner_tags" {
+  type        = map(string)
+  description = "Tags to apply to the AWS App Runner service."
 }
 
-output "app_runner_service_status" {
-  description = "The status of the AWS App Runner service."
-  value       = aws_apprunner_service.app_runner_service.status
+variable "ecr_arn" {
+  type        = list(string)
+  description = "The ARN of the Amazon ECR repository."
 }
 
-output "app_runner_service_url" {
-  description = "The default domain URL of the AWS App Runner service."
-  value       = aws_apprunner_service.app_runner_service.service_url
+variable "app_port" {
+  type        = number
+  description = "The port on which the application runs."
 }
 
-output "app_runner_service_instance_configuration" {
-  description = "The instance configuration of the AWS App Runner service."
-  value       = aws_apprunner_service.app_runner_service.instance_configuration
+variable "image_repository_type" {
+  type        = string
+  description = "The type of image repository used (e.g., 'ECR')."
 }
 
-output "app_runner_service_network_configuration" {
-  description = "The network configuration of the AWS App Runner service."
-  value       = aws_apprunner_service.app_runner_service.network_configuration
+variable "image_identifier" {
+  type        = string
+  description = "The identifier of the Docker image."
 }
 
-output "app_runner_service_auto_scaling_configuration_arn" {
-  description = "The ARN of the auto scaling configuration used by the AWS App Runner service."
-  value       = aws_apprunner_service.app_runner_service.auto_scaling_configuration_arn
+variable "auto_deployments_enabled" {
+  default     = false
+  type = bool
+  description = "Whether automatic deployments are enabled."
 }
 
-output "app_runner_service_observability_configuration" {
-  description = "The observability configuration of the AWS App Runner service."
-  value       = aws_apprunner_service.app_runner_service.observability_configuration
+variable "runtime_environment_variables" {
+  description = "Environment variables for the App Runner service."
+  type        = map(string)
+  default     = {}
 }
 
-output "app_runner_service_source_configuration" {
-  description = "The source configuration of the AWS App Runner service."
-  value       = aws_apprunner_service.app_runner_service.source_configuration
+variable "cpu" {
+  type     = number
+  description = "The amount of CPU allocated to each instance."
+}
+
+variable "memory" {
+  type =       number
+  description = "The amount of memory allocated to each instance."
+}
+
+variable "is_publicly_accessible" {
+  type        = bool
+  default     = true
+  description = "Whether the service is publicly accessible."
+}
+
+variable "egress_type" {
+  type        = string
+  default     = "DEFAULT"
+  description = "The type of egress traffic (e.g., 'DEFAULT')."
+}
+
+variable "auto_scaling_configuration_name" {
+  type        = string
+  description = "The name of the App Runner auto scaling configuration."
+}
+
+variable "max_concurrency" {
+  type        = number
+  description = "The maximum concurrency setting."
+}
+
+variable "min_size" {
+  type        = number
+  description = "The minimum number of instances."
+}
+
+variable "max_size" {
+  type        = number
+  description = "The maximum number of instances."
+}
+
+variable "auto_scale_tags" {
+  type        = map(string)
+  description = "Tags to apply to the auto scaling configuration."
+}
+
+variable "env" {
+  type        = string
+  description = "The environment (e.g., 'development', 'production')."
+}
+
+variable "domain_name" {
+  type        = string
+  description = "The domain name associated with the App Runner service."
 }
 
 
-# custom domain 
-output "app_runner_custom_domain_association_id" {
-  description = "The domain name and service ARN separated by a comma."
-  value       = aws_apprunner_custom_domain_association.appRunnerDomain.id
+variable "stack_depends_on" {
+
+  type = list(string)
+  
+  
 }
 
-output "app_runner_custom_domain_certificate_validation_records" {
-  description = "A set of certificate CNAME records used for this domain name."
-  value       = aws_apprunner_custom_domain_association.appRunnerDomain.certificate_validation_records
+variable "codebuild_project_arn" {
+  type = string
+  
 }
 
-output "app_runner_custom_domain_dns_target" {
-  description = "App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name."
-  value       = aws_apprunner_custom_domain_association.appRunnerDomain.dns_target
+variable "region" {
+  type =string
+
+}
+variable "profile" {
+  type =  string
+
+  
+}
+variable "ecr_repository_name" {
+  type = string
 }
