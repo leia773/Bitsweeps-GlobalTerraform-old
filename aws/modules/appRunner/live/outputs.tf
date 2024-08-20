@@ -1,126 +1,126 @@
 
 
-variable "service_name" {
+output "service_name" {
   type        = string
   description = "The name of the AWS App Runner service."
 }
 
-variable "app_runner_tags" {
+output "app_runner_tags" {
   type        = map(string)
   description = "Tags to apply to the AWS App Runner service."
 }
 
-variable "ecr_arn" {
+output "ecr_arn" {
   type        = list(string)
   description = "The ARN of the Amazon ECR repository."
 }
 
-variable "app_port" {
+output "app_port" {
   type        = number
   description = "The port on which the application runs."
 }
 
-variable "image_repository_type" {
+output "image_repository_type" {
   type        = string
   description = "The type of image repository used (e.g., 'ECR')."
 }
 
-variable "image_identifier" {
+output "image_identifier" {
   type        = string
   description = "The identifier of the Docker image."
 }
 
-variable "auto_deployments_enabled" {
+output "auto_deployments_enabled" {
   default     = false
   type = bool
   description = "Whether automatic deployments are enabled."
 }
 
-variable "runtime_environment_variables" {
+output "runtime_environment_variables" {
   description = "Environment variables for the App Runner service."
   type        = map(string)
   default     = {}
 }
 
-variable "cpu" {
+output "cpu" {
   type     = number
   description = "The amount of CPU allocated to each instance."
 }
 
-variable "memory" {
+output "memory" {
   type =       number
   description = "The amount of memory allocated to each instance."
 }
 
-variable "is_publicly_accessible" {
+output "is_publicly_accessible" {
   type        = bool
   default     = true
   description = "Whether the service is publicly accessible."
 }
 
-variable "egress_type" {
+output "egress_type" {
   type        = string
   default     = "DEFAULT"
   description = "The type of egress traffic (e.g., 'DEFAULT')."
 }
 
-variable "auto_scaling_configuration_name" {
+output "auto_scaling_configuration_name" {
   type        = string
   description = "The name of the App Runner auto scaling configuration."
 }
 
-variable "max_concurrency" {
+output "max_concurrency" {
   type        = number
   description = "The maximum concurrency setting."
 }
 
-variable "min_size" {
+output "min_size" {
   type        = number
   description = "The minimum number of instances."
 }
 
-variable "max_size" {
+output "max_size" {
   type        = number
   description = "The maximum number of instances."
 }
 
-variable "auto_scale_tags" {
+output "auto_scale_tags" {
   type        = map(string)
   description = "Tags to apply to the auto scaling configuration."
 }
 
-variable "env" {
+output "env" {
   type        = string
   description = "The environment (e.g., 'development', 'production')."
 }
 
-variable "domain_name" {
+output "domain_name" {
   type        = string
   description = "The domain name associated with the App Runner service."
 }
 
 
-variable "stack_depends_on" {
+output "stack_depends_on" {
 
   type = list(string)
   
   
 }
 
-variable "codebuild_project_arn" {
+output "codebuild_project_arn" {
   type = string
   
 }
 
-variable "region" {
+output "region" {
   type =string
 
 }
-variable "profile" {
+output "profile" {
   type =  string
 
   
 }
-variable "ecr_repository_name" {
+output "ecr_repository_name" {
   type = string
 }
